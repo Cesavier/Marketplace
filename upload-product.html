@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Publicar Producto | Le Pulge</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Forzar que nada se salga de la pantalla */
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* Evita el desplazamiento lateral */
+            -webkit-text-size-adjust: 100%;
+            /* Evita que Safari cambie el tamaño del texto */
+        }
+
+        /* Ajuste de contenedores para pantallas pequeñas */
+        .container {
+            width: 100% !important;
+            padding-right: 12px !important;
+            padding-left: 12px !important;
+            margin: 0 auto !important;
+        }
+
+        .row {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        .container,
+        .container-fluid {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            padding-bottom: 80px;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--primary) !important;
+        }
+
+        /* Contenedor del Formulario */
+        .form-card {
+            max-width: 700px;
+            margin: 20px auto;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Área de subida de fotos */
+        .upload-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fbfcfd;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary);
+            background: #eff6ff;
+        }
+
+        /* Inputs estilizados */
+        .form-control,
+        .form-select {
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+
+        /* Menú Inferior Móvil */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #dee2e6;
+            z-index: 1050;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: #64748b;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
+        .mobile-nav i {
+            font-size: 1.4rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top d-none d-md-block mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Le pulge</a>
+            <div class="ms-auto">
+                <a href="index.html" class="btn btn-outline-secondary rounded-pill px-4 me-2">Cancelar</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container px-3">
+        <div class="text-center my-4">
+            <h2 class="fw-bold">Vender un artículo</h2>
+            <p class="text-muted">Completa los detalles para llegar a más compradores.</p>
+        </div>
+
+        <div class="card form-card">
+            <div class="card-body p-4 p-md-5">
+                <form>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Fotos del producto</label>
+                        <div class="upload-zone">
+                            <i class="bi bi-camera fs-1 text-primary"></i>
+                            <p class="mb-0 mt-2 fw-semibold">Subir imágenes</p>
+                            <span class="text-muted small">Arrastra o haz clic aquí</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">¿Qué vendes?</label>
+                        <input type="text" class="form-control" placeholder="Ej: Nintendo Switch seminueva">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label fw-bold">Categoría</label>
+                            <select class="form-select">
+                                <option>Tecnología</option>
+                                <option>Ropa</option>
+                                <option>Hogar</option>
+                                <option>Otros</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label fw-bold">Precio ($)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-muted">$</span>
+                                <input type="number" class="form-control border-start-0" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Ubicación de entrega</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0"><i
+                                    class="bi bi-geo-alt text-danger"></i></span>
+                            <input type="text" class="form-control border-start-0" placeholder="Colonia o ciudad...">
+                        </div>
+                        <div class="form-text text-muted small mt-2">
+                            Integrado con Google Maps para mayor precisión.
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Descripción</label>
+                        <textarea class="form-control" rows="4"
+                            placeholder="Describe el estado, uso y detalles..."></textarea>
+                    </div>
+
+                    <div class="d-grid pt-2">
+                        <button type="button" class="btn btn-primary btn-lg rounded-3 fw-bold py-3 shadow">
+                            Publicar Ahora
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <nav class="mobile-nav shadow">
+        <a href="index.html">
+            <i class="bi bi-house-door"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="#">
+            <i class="bi bi-search"></i>
+            <span>Explorar</span>
+        </a>
+        <a href="upload-product.html" class="text-primary">
+            <i class="bi bi-plus-circle-fill"></i>
+            <span>Vender</span>
+        </a>
+        <a href="mis-productos.html">
+            <i class="bi bi-box-seam"></i>
+            <span>Mis Ventas</span>
+        </a>
+        <a href="#">
+            <i class="bi bi-person"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
